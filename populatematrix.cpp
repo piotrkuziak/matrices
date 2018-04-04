@@ -1,12 +1,23 @@
 #include "functions.h"
-#include <random>
 
-void populateMatrix(vector<int> matrix) {
+void populateMatrix(vector<vector<int>> matrix) {
 
     random_device rd;
     mt19937 mt(rd());
     uniform_real_distribution<double> dist(1.00, 100.00);
 
-    for (int &i : matrix) i = dist(mt);
-    for (int i : matrix) cout << " " << i << " ";
+    for(int i = 0; i < matrix.size(); i++){
+        for(int j = 0; j < matrix[0].size(); j++){
+            matrix[i][j] = dist(mt);
+        }
+    }
+
+    for(int i = 0; i < matrix.size(); i++){
+        cout << "[";
+        for(int j = 0; j < matrix[0].size(); j++){
+            cout << " " << matrix[i][j] << " ";
+        }
+        cout << "]";
+    }
+
 }

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <random>
 
 using namespace std;
 
@@ -8,6 +9,6 @@ using namespace std;
 
 void getData();
 void createMatrix(int *rows, int *columns);
-void populateMatrix(vector<int> matrix);
+void populateMatrix(vector<vector<int>> matrix);
 
 #endif //MATRICES_FUNCTIONS_H
