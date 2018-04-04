@@ -3,4 +3,4 @@ project(matrices)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(matrices main.cpp functions.h getdata.cpp creatematrix.cpp populatematrix.cpp)
+add_executable(matrices main.cpp functions.h getdata.cpp creatematrix.cpp populatematrix.cpp showmatrix.cpp)

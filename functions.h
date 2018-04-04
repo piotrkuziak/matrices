@@ -10,5 +10,6 @@ using namespace std;
 void getData();
 void createMatrix(int *rows, int *columns);
 void populateMatrix(vector<vector<int>> matrix);
+void showMatrix(vector<vector<int>> matrix);
 
 #endif //MATRICES_FUNCTIONS_H
