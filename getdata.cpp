@@ -11,8 +11,8 @@ void getData() {
     cout << "Podaj liczbę wierszy: ";
     cin >> rows;
 
-    cout << "Podaj liczbę kolumn: ";
-    cin >> columns;
+    //cout << "Podaj liczbę kolumn: ";
+    //cin >> columns;
 
     //cout << "Podaj nazwę pliku: ";
     //cin >> fileName;

@@ -1,13 +1,12 @@
 #include "functions.h"
-#include <stdlib.h>
-#include <time.h>
+#include <random>
 
-void populateMatrix(int *matrix, int *rows, int *columns) {
+void populateMatrix(vector<int> matrix) {
 
-    srand(time(NULL));
+    random_device rd;
+    mt19937 mt(rd());
+    uniform_real_distribution<double> dist(1.00, 100.00);
 
-    for(int i = 0; i < *rows; i++){
-        for(int j = 0; j < *columns; j++) matrix[i] = rand() % 100 + 1;
-    }
-
+    for (int &i : matrix) i = dist(mt);
+    for (int i : matrix) cout << " " << i << " ";
 }
