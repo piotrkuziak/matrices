@@ -1,6 +1,6 @@
 #ifndef MATRICES_MESSAGES_H
 #define MATRICES_MESSAGES_H
 
-#define MSG_ERR "Użytkownik nie podał liczby"
+#define MSG_ERR "ZŁE DANE"
 
 #endif //MATRICES_MESSAGES_H

@@ -15,7 +15,7 @@ tuple<int, int, string, int> getData() {
     cin >> columns;
 
     if(cin.fail()) {
-        status = 2;
+        status = ERR;
     }
 
     return make_tuple(*rows_pointer, *columns_pointer, *fileName_pointer, status);
