@@ -1,15 +1,20 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include <tuple>
+#include <stdexcept>
+#include <fstream>
 
 using namespace std;
 
 #ifndef MATRICES_FUNCTIONS_H
 #define MATRICES_FUNCTIONS_H
 
-void getData();
-void createMatrix(int *rows, int *columns);
+tuple<int, int, string> getData();
+vector<vector<int>> createMatrix(int *rows, int *columns);
 void populateMatrix(vector<vector<int>> matrix);
 void showMatrix(vector<vector<int>> matrix);
+void createFile(string *fileName);
+int populateFile(vector<vector<int>> matrix, string *fileName);
 
 #endif //MATRICES_FUNCTIONS_H
