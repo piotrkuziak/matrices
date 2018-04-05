@@ -6,7 +6,7 @@ int main() {
 
     auto a = getData();
 
-    if(get<3>(a) != 1) {
+    if(get<3>(a) != OK) {
         cout << endl << MSG_ERR << endl;
         return 0;
     }
