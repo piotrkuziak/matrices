@@ -17,7 +17,7 @@ tuple<int, int, string, int> getData();
 vector<vector<int>> createMatrix(int *rows, int *columns);
 void populateMatrix(vector<vector<int>> matrix);
 void showMatrix(vector<vector<int>> matrix);
-int createFile(string *fileName);
+tuple<ofstream, int> createFile(string *fileName);
 int populateFile(vector<vector<int>> matrix, string *fileName);
 
 #endif //MATRICES_FUNCTIONS_H

@@ -14,9 +14,7 @@ tuple<int, int, string, int> getData() {
     cout << "Kolumny: ";
     cin >> columns;
 
-    if(cin.fail()) {
-        status = ERR;
-    }
+    if(cin.fail()) status = ERR_WRONG_DATA;
 
     return make_tuple(*rows_pointer, *columns_pointer, *fileName_pointer, status);
 

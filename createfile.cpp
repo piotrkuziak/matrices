@@ -1,9 +1,13 @@
 #include "functions.h"
-#include <typeinfo>
 
-int createFile(string *fileName) {
+tuple<ofstream, int> createFile(string *fileName) {
 
-    ofstream plik;
-    cout << "Typ: " << typeid(plik).name() << endl;
+    int status = 1;
+
+    ofstream file;
+
+    if(file.fail()) status = ERR_FILE_CREATION_FAIL;
+
+    return make_tuple(file, status);
 
 }
