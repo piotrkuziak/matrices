@@ -11,7 +11,14 @@ int main() {
         return ERR_WRONG_DATA;
     }
 
-    createMatrix(&rows, &columns);
+    switch(createMatrix(&rows, &columns)) {
+        case ERR_WRONG_DATA:
+            cout << endl << MSG_ERR_WRONG_DATA << endl;
+            break;
+        case ERR_MEMORY_ALLOC_FAIL:
+            cout << endl << MSG_ERR_MEMORY_ALLOC_FAIL << endl;
+            break;
+    }
 
     return OK;
 }

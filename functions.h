@@ -13,7 +13,7 @@ using namespace std;
 
 int getData(int *rows, int *columns);
 int createMatrix(int *rows, int *columns);
-//void populateMatrix(vector<vector<int>> matrix);
+int populateMatrix();
 //void showMatrix(vector<vector<int>> matrix);
 //tuple<ofstream, int> createFile(string *fileName);
 //int populateFile(vector<vector<int>> matrix, string *fileName);
