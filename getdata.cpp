@@ -1,21 +1,15 @@
 #include "functions.h"
 
-tuple<int, int, string, int> getData() {
+int getData(int *rows, int *columns) {
 
-    int rows, columns, status = 1;
-    int *rows_pointer = &rows, *columns_pointer = &columns;
+    cout << MSG_GET_ROWS;
+    cin >> *rows;
 
-    string fileName = "Plik";
-    string *fileName_pointer = &fileName;
+    cout << MSG_GET_COLUMNS;
+    cin >> *columns;
 
-    cout << "Wiersze: ";
-    cin >> rows;
+    if(cin.fail() || *rows <= 0 || *columns <= 0) return ERR_WRONG_DATA;
 
-    cout << "Kolumny: ";
-    cin >> columns;
-
-    if(cin.fail()) status = ERR_WRONG_DATA;
-
-    return make_tuple(*rows_pointer, *columns_pointer, *fileName_pointer, status);
+    return OK;
 
 }

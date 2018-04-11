@@ -1,9 +1,20 @@
 #include "functions.h"
 
-vector<vector<int>> createMatrix(int *rows, int *columns) {
+int createMatrix(int *rows, int *columns) {
 
-    vector<vector<int>> matrix(*rows, vector<int>(*columns, 0));
+    if(*rows == nullptr || *columns == nullptr) {
+        cout << endl << MSG_ERR_WRONG_DATA << endl;
+        return ERR_WRONG_DATA;
+    }
 
-    return matrix;
+    int *matrix;
+    matrix = new (nothrow) int [*rows];
+
+    if(matrix == nullptr) {
+        cout << endl << MSG_ERR_MEMORY_ALLOC_FAIL << endl;
+        return ERR_MEMORY_ALLOC_FAIL;
+    }
+
+    return OK;
 
 }
