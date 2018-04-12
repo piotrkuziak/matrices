@@ -4,14 +4,14 @@ using namespace std;
 
 int main() {
 
-    int rows = 0, columns = 0, **matrix;
+    int rows = 0, columns = 0, **matrix_passed;
 
     if(getData(&rows, &columns) != OK) {
         cout << endl << MSG_ERR_WRONG_DATA << endl;
         return ERR_WRONG_DATA;
     }
 
-    switch(createMatrix(&rows, &columns, &matrix)) {
+    switch(createMatrix(&rows, &columns, &matrix_passed)) {
         case ERR_WRONG_DATA:
             cout << endl << MSG_ERR_WRONG_DATA << endl;
             break;

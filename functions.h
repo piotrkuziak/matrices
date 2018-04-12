@@ -12,8 +12,8 @@ using namespace std;
 #define MATRICES_FUNCTIONS_H
 
 int getData(int *rows, int *columns);
-int createMatrix(int *rows, int *columns, int ***matrix);
-int populateMatrix(int *rows, int *columns);
+int createMatrix(int *rows, int *columns, int ***matrix_passed);
+int populateMatrix(int *rows, int *columns, int ***matrix_passed);
 //void showMatrix(vector<vector<int>> matrix);
 //tuple<ofstream, int> createFile(string *fileName);
 //int populateFile(vector<vector<int>> matrix, string *fileName);
