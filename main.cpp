@@ -4,12 +4,12 @@ using namespace std;
 
 int main() {
 
-    int rows = 0, columns = 0, **matrix_passed;
+    int rows = 3, columns = 4, **matrix_passed;
 
-    if(getData(&rows, &columns) != OK) {
-        cout << endl << MSG_ERR_WRONG_DATA << endl;
-        return ERR_WRONG_DATA;
-    }
+//    if(getData(&rows, &columns) != OK) {
+//        cout << endl << MSG_ERR_WRONG_DATA << endl;
+//        return ERR_WRONG_DATA;
+//    }
 
     switch(createMatrix(&rows, &columns, &matrix_passed)) {
         case ERR_WRONG_DATA:
@@ -23,6 +23,18 @@ int main() {
         default:
             break;
     }
+
+    populateMatrix(&rows, &columns, &matrix_passed);
+
+//    for(int i = 0; i < rows; i++){
+//        cout << "[";
+//        for(int j = 0; j < columns; j++) {
+//            cout << " " << **matrix_passed << " ";
+//            *matrix_passed += 1;
+//        }
+//        cout << "]" << endl;
+//        matrix_passed += 1;
+//    }
 
     return OK;
 }
