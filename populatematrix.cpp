@@ -8,26 +8,24 @@ int populateMatrix(int *rows, int *columns, int ***matrix_passed) {
 
     for(int i = 0; i < *rows; i++){
         for(int j = 0; j < *columns; j++) {
-            ***matrix_passed = dist(mt);
+            ***matrix_passed = 2;
             **matrix_passed += 1;
         }
         *matrix_passed += 1;
     }
 
-    cout << ***matrix_passed;
-
 //    *matrix_passed += 1; rows
 //    **matrix_passed += 1; columns
 
-//    for(int i = 0; i < *rows; i++){
-//        cout << "[";
-//        for(int j = 0; j < *columns; j++) {
-//            cout << " " << ***matrix_passed << " ";
-//            **matrix_passed += 1;
-//        }
-//        cout << "]" << endl;
-//        *matrix_passed += 1;
-//    }
+    for(int i = 0; i < *rows; i++){
+        cout << "[";
+        for(int j = 0; j < *columns; j++) {
+            cout << " " << ***matrix_passed << " ";
+            **matrix_passed += 1;
+        }
+        cout << "]" << endl;
+        *matrix_passed += 1;
+    }
 
     return OK;
 
