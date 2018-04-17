@@ -1,11 +1,11 @@
 #include "functions.h"
 
-void showMatrix(vector<vector<int>> matrix) {
+void showMatrix(int rows, int columns, int** matrix_pointer) {
 
-    for(int i = 0; i < matrix.size(); i++){
+    for(int i = 0; i < rows; i++){
         cout << "[";
-        for(int j = 0; j < matrix[0].size(); j++){
-            cout << " " << matrix[i][j] << " ";
+        for(int j = 0; j < columns; j++) {
+            cout << " " << matrix_pointer[i][j] << " ";
         }
         cout << "]" << endl;
     }
