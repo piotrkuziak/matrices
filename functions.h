@@ -16,6 +16,6 @@ int createMatrix(int rows, int columns, int*** matrix_pointer);
 int populateMatrix(int rows, int columns, int** matrix_pointer);
 void showMatrix(int rows, int columns, int** matrix_pointer);
 int createFile(string file_name);
-int populateFile(int** matrix, string file_name);
+int populateFile(int rows, int columns, int** matrix, string file_name);
 
 #endif //MATRICES_FUNCTIONS_H
