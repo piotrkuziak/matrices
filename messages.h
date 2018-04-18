@@ -3,7 +3,6 @@
 
 #define DEBUG
 
-#define MSG_GET_AMOUNT "Podaj ilość macierzy do przemnożenia: "
 #define MSG_GET_ROWS "Podaj ilość wierszy: "
 #define MSG_GET_COLUMNS "Podaj ilość kolumn: "
 #define MSG_GET_FILE_NAME "Podaj nazwę pliku, do którego zostanie zapisana macierz: "

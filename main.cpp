@@ -4,13 +4,15 @@ using namespace std;
 
 int main() {
 
+    //cout << "\n\033[31mtext\033[0m";
+
     int rows = 0, columns = 0, **matrix_pointer, **matrix_one_pointer, **matrix_two_pointer, **matrix_multiplied, matrix_sizes[4];
     string file_name, file_names[2], new_file_name;
 
     for(int i = 0; i < 2; i++) {
 
         if(getData(&rows, &columns, &file_name) != OK) {
-            cout << endl << MSG_ERR_WRONG_DATA << endl;
+            cout << "\n\033[96m" << MSG_ERR_WRONG_DATA << "\033[0m\n";
             return ERR_WRONG_DATA;
         }
 
