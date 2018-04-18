@@ -4,8 +4,8 @@ using namespace std;
 
 int main() {
 
-    int rows = 0, columns = 0, **matrix_pointer;
-    string file_name;
+    int rows = 0, columns = 0, **matrix_pointer, **matrix_array;
+    string file_name, file_names[2];
 
     for(int i = 0; i < 2; i++) {
 
@@ -53,9 +53,17 @@ int main() {
             return ERR_FILE_POPULATION_FAIL;
         }
 
+        file_names[i] = file_name;
+
         showMatrix(rows, columns, matrix_pointer);
 
     }
+
+    getFileContents(file_names, &matrix_array);
+
+    cout << endl << "MAIN" << endl;
+    cout << matrix_array[0] << endl;
+    cout << matrix_array[1] << endl;
 
     return OK;
 }
