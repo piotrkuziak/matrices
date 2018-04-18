@@ -1,52 +1,35 @@
 #include "functions.h"
 
-int getFileContents(string* file_names, int*** matrix_array) {
+int getFileContents(string* file_names, int*** matrix_one_pointer, int*** matrix_two_pointer) {
 
-    int rows = 0, columns = 0, **matrices = new int* [2];
+    int rows = 0, columns = 0;
+    string file_name_one = file_names[0], file_name_two = file_names[1];
 
-    cout << endl << "GETFILECONTENTS" << endl;
-
-    ifstream file (file_names[0]);
-    ifstream file2 (file_names[1]);
+    ifstream file (file_name_one);
+    ifstream file2 (file_name_two);
 
     file >> rows >> columns;
-    int matrix[rows][columns];
-    cout << "ROWS: " << rows << endl;
-    cout << "COLUMNS: " << columns << endl;
+    int **matrix = new int* [rows];
+    for(int i = 0; i < rows; i++) matrix[i] = new int [columns];
+
     for(int i = 0; i < rows; i++) {
         for(int j = 0; j < columns; j++) {
             file >> matrix[i][j];
         }
     }
-    for(int i = 0; i < rows; i++) {
-        cout << "[";
-        for(int j = 0; j < columns; j++) {
-            cout << " " << matrix[i][j] << " ";
-        }
-        cout << "]" << endl;
-    }
 
     file2 >> rows >> columns;
-    int matrix2[rows][columns];
-    cout << "ROWS: " << rows << endl;
-    cout << "COLUMNS: " << columns << endl;
+    int **matrix2 = new int* [rows];
+    for(int i = 0; i < rows; i++) matrix2[i] = new int [columns];
+
     for(int i = 0; i < rows; i++) {
         for(int j = 0; j < columns; j++) {
             file2 >> matrix2[i][j];
         }
     }
-    for(int i = 0; i < rows; i++) {
-        cout << "[";
-        for(int j = 0; j < columns; j++) {
-            cout << " " << matrix2[i][j] << " ";
-        }
-        cout << "]" << endl;
-    }
 
-    matrices[0] = *matrix;
-    matrices[1] = *matrix2;
-
-    *matrix_array = matrices;
+    *matrix_one_pointer = matrix;
+    *matrix_two_pointer = matrix2;
 
     return OK;
 

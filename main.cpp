@@ -4,14 +4,24 @@ using namespace std;
 
 int main() {
 
-    int rows = 0, columns = 0, **matrix_pointer, **matrix_array;
-    string file_name, file_names[2];
+    int rows = 0, columns = 0, **matrix_pointer, **matrix_one_pointer, **matrix_two_pointer, **matrix_multiplied, matrix_sizes[4];
+    string file_name, file_names[2], new_file_name;
 
     for(int i = 0; i < 2; i++) {
 
         if(getData(&rows, &columns, &file_name) != OK) {
             cout << endl << MSG_ERR_WRONG_DATA << endl;
             return ERR_WRONG_DATA;
+        }
+
+        if(i == 0) {
+            matrix_sizes[0] = rows;
+            matrix_sizes[1] = columns;
+        }
+
+        if(i == 1) {
+            matrix_sizes[2] = rows;
+            matrix_sizes[3] = columns;
         }
 
         switch(createMatrix(rows, columns, &matrix_pointer)) {
@@ -55,15 +65,21 @@ int main() {
 
         file_names[i] = file_name;
 
-        showMatrix(rows, columns, matrix_pointer);
+        //showMatrix(rows, columns, matrix_pointer);
 
     }
 
-    getFileContents(file_names, &matrix_array);
+    getFileContents(file_names, &matrix_one_pointer, &matrix_two_pointer);
 
-    cout << endl << "MAIN" << endl;
-    cout << matrix_array[0] << endl;
-    cout << matrix_array[1] << endl;
+    if(multiplyMatrices(matrix_sizes, matrix_one_pointer, matrix_two_pointer, &matrix_multiplied) != OK) {
+        cout << endl << MSG_ERR_MATRICES_WRONG_SIZE << endl;
+        return ERR_MATRICES_WRONG_SIZE;
+    }
+
+    new_file_name = file_names[0] + "_" + file_names[1];
+
+    createFile(new_file_name);
+    populateFile(matrix_sizes[0], matrix_sizes[3], matrix_multiplied, new_file_name);
 
     return OK;
 }
