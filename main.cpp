@@ -63,9 +63,9 @@ int main() {
             return ERR_FILE_POPULATION_FAIL;
         }
 
-        file_names[i] = file_name;
+        clearMemory(rows, matrix_pointer);
 
-        //showMatrix(rows, columns, matrix_pointer);
+        file_names[i] = file_name;
 
     }
 
@@ -79,12 +79,38 @@ int main() {
     if(multiplyMatrices(matrix_sizes, matrix_one_pointer, matrix_two_pointer, &matrix_multiplied) != OK) {
         cout << endl << MSG_ERR_MATRICES_WRONG_SIZE << endl;
         return ERR_MATRICES_WRONG_SIZE;
+    } else {
+        cout << MSG_MULTIPLYING_MATRICE << endl;
     }
 
     new_file_name = file_names[0] + "_" + file_names[1];
 
-    createFile(new_file_name);
-    populateFile(matrix_sizes[0], matrix_sizes[3], matrix_multiplied, new_file_name);
+    switch(createFile(new_file_name)) {
+        case ERR_WRONG_DATA:
+            cout << endl << MSG_ERR_WRONG_DATA << endl;
+            return ERR_WRONG_DATA;
+        case ERR_FILE_EXISTS:
+            cout << endl << MSG_ERR_FILE_EXISTS << endl;
+            return ERR_FILE_EXISTS;
+        case ERR_FILE_CREATION_FAIL:
+            cout << endl << MSG_ERR_FILE_CREATION_FAIL << endl;
+            return ERR_FILE_CREATION_FAIL;
+        default:
+            break;
+    }
+
+    if(populateFile(matrix_sizes[0], matrix_sizes[3], matrix_multiplied, new_file_name) != OK) {
+        cout << endl << MSG_ERR_FILE_POPULATION_FAIL << endl;
+        return ERR_FILE_POPULATION_FAIL;
+    } else {
+        cout << MSG_SAVING_MULTIPLIED_MATRICE << endl;
+    }
+
+    showMatrix(matrix_sizes[0], matrix_sizes[3], matrix_multiplied);
+
+    clearMemory(matrix_sizes[0], matrix_multiplied);
+
+    cout << endl << MSG_SUCCESS << endl;
 
     return OK;
 }
