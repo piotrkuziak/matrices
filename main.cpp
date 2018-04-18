@@ -69,7 +69,12 @@ int main() {
 
     }
 
-    getFileContents(file_names, &matrix_one_pointer, &matrix_two_pointer);
+    if(getFileContents(file_names, &matrix_one_pointer, &matrix_two_pointer) != OK) {
+        #ifdef DEBUG
+            cout << endl << MSG_ERR_FILE_DOESNT_EXIST << endl;
+        #endif
+        return ERR_FILE_DOESNT_EXIST;
+    }
 
     if(multiplyMatrices(matrix_sizes, matrix_one_pointer, matrix_two_pointer, &matrix_multiplied) != OK) {
         cout << endl << MSG_ERR_MATRICES_WRONG_SIZE << endl;
