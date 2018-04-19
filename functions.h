@@ -11,6 +11,8 @@
 
 using namespace std;
 
+const int LIMIT = 5;
+
 int getAmount(int *amount);
 int getData(int *rows, int *columns, string *file_name);
 int createMatrix(int rows, int columns, int*** matrix_pointer);
@@ -18,7 +20,7 @@ int populateMatrix(int rows, int columns, int** matrix_pointer);
 int createFile(string file_name);
 int populateFile(int rows, int columns, int** matrix, string file_name);
 int getFileContents(int amount_of_matrices, string* file_names, int*** matrix_array);
-int multiplyMatrices(int* matrix_sizes, int** matrix_one, int** matrix_two, int*** matrix_multiplied);
+int multiplyMatrices(int amount_of_matrices, int** matrix_sizes, int*** matrix_array);
 void showMatrix(int rows, int columns, int** matrix_pointer);
 void clearMemory(int rows, int** matrix);
 

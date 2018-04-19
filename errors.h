@@ -9,5 +9,6 @@ const int ERR_FILE_EXISTS = 5;
 const int ERR_FILE_DOESNT_EXIST = 6;
 const int ERR_FILE_POPULATION_FAIL = 7;
 const int ERR_MATRICES_WRONG_SIZE = 8;
+const int ERR_LIMIT_SURPASSED = 9;
 
 #endif //MATRICES_ERRORS_H

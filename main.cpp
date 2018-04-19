@@ -6,17 +6,26 @@ int main() {
 
     //cout << "\n\033[31mtext\033[0m";
 
-    int amount_of_matrices = 5, rows = 2, columns = 2, **matrix_pointer, ***matrix_array;
+    int amount_of_matrices = 3, rows = 0, columns = 0, **matrix_pointer, ***matrix_array, **matrix_sizes;
 //    int **matrix_pointer, **matrix_one_pointer, **matrix_two_pointer, **matrix_multiplied, matrix_sizes[4];
     string file_name, *file_names;
 
-//    if(getAmount(&amount_of_matrices) != OK) {
-//        cout << endl << MSG_ERR_WRONG_DATA << endl;
-//        return ERR_WRONG_DATA;
+//    switch(getAmount(&amount_of_matrices)) {
+//        case ERR_WRONG_DATA:
+//            cout << endl << MSG_ERR_WRONG_DATA << endl;
+//            return ERR_WRONG_DATA;
+//        case ERR_LIMIT_SURPASSED:
+//            cout << endl << MSG_ERR_LIMIT_SURPASSED << LIMIT << endl;
+//            return ERR_LIMIT_SURPASSED;
+//        default:
+//            break;
 //    }
 
     file_names = new string [amount_of_matrices];
     matrix_array = new int** [amount_of_matrices];
+    matrix_sizes = new int* [amount_of_matrices];
+
+    for(int i = 0; i < amount_of_matrices; i++) matrix_sizes[i] = new int [2];
 
     for(int i = 0; i < amount_of_matrices; i++) {
 
@@ -65,31 +74,25 @@ int main() {
         }
 
         file_names[i] = file_name;
+        matrix_sizes[i][0] = rows;
+        matrix_sizes[i][1] = columns;
 
     }
 
-//    cout << "Nazwy plików:";
-//
-//    for(int i = 0; i < amount_of_matrices; i++) {
-//        cout << " " << file_names[i] << " ";
-//    }
+    if(getFileContents(amount_of_matrices, file_names, matrix_array) != OK) {
+        #ifdef DEBUG
+            cout << endl << MSG_ERR_FILE_DOESNT_EXIST << endl;
+        #endif
+        return ERR_FILE_DOESNT_EXIST;
+    }
 
-    getFileContents(amount_of_matrices, file_names, matrix_array);
+    if(multiplyMatrices(amount_of_matrices, matrix_sizes, matrix_array) != OK) {
+        cout << endl << MSG_ERR_MATRICES_WRONG_SIZE << endl;
+        return ERR_MATRICES_WRONG_SIZE;
+    } else {
+        cout << MSG_MULTIPLYING_MATRICE << endl;
+    }
 
-//    if(getFileContents(file_names, &matrix_one_pointer, &matrix_two_pointer) != OK) {
-//        #ifdef DEBUG
-//            cout << endl << MSG_ERR_FILE_DOESNT_EXIST << endl;
-//        #endif
-//        return ERR_FILE_DOESNT_EXIST;
-//    }
-
-//    if(multiplyMatrices(matrix_sizes, matrix_one_pointer, matrix_two_pointer, &matrix_multiplied) != OK) {
-//        cout << endl << MSG_ERR_MATRICES_WRONG_SIZE << endl;
-//        return ERR_MATRICES_WRONG_SIZE;
-//    } else {
-//        cout << MSG_MULTIPLYING_MATRICE << endl;
-//    }
-//
 //    new_file_name = file_names[0] + "_" + file_names[1];
 //
 //    switch(createFile(new_file_name)) {

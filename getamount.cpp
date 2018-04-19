@@ -6,6 +6,7 @@ int getAmount(int *amount) {
     cin >> *amount;
 
     if(*amount == NULL) return ERR_WRONG_DATA;
+    if(*amount > LIMIT) return ERR_LIMIT_SURPASSED;
 
     return OK;
 
