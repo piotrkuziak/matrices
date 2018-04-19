@@ -1,10 +1,10 @@
 #include "functions.h"
 
-int getFileContents(string* file_names, int*** matrix_one_pointer, int*** matrix_two_pointer) {
+int getFileContents(int amount_of_matrices, string* file_names, int*** matrix_array) {
 
     int rows = 0, columns = 0, **matrix;
 
-    for(int i = 0; i < 2 ; i++){
+    for(int i = 0; i < amount_of_matrices; i++){
         ifstream file (file_names[i]);
 
         if(!file) return ERR_FILE_DOESNT_EXIST;
@@ -20,8 +20,7 @@ int getFileContents(string* file_names, int*** matrix_one_pointer, int*** matrix
             }
         }
 
-        if(i == 0) *matrix_one_pointer = matrix;
-        if(i == 1) *matrix_two_pointer = matrix;
+        matrix_array[i] = matrix;
 
         file.close();
 
