@@ -23,5 +23,6 @@ int getFileContents(int amount_of_matrices, string* file_names, int*** matrix_ar
 int multiplyMatrices(int amount_of_matrices, int** matrix_sizes, int*** matrix_array);
 void showMatrix(int rows, int columns, int** matrix_pointer);
 void clearMemory(int rows, int** matrix);
+void deleteFiles(int iterations, string* file_names);
 
 #endif //MATRICES_FUNCTIONS_H
