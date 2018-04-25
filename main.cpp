@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
 
-    int amount_of_matrices = 3,
+    int amount_of_matrices = 2,
             rows = 0,
             columns = 0,
             iterations = 0,
@@ -30,7 +30,8 @@ int main() {
     matrix_array = new int** [amount_of_matrices];
 
     matrix_sizes = new int* [amount_of_matrices];
-    for(int i = 0; i < amount_of_matrices; i++) matrix_sizes[i] = new int [2];
+    for(int i = 0; i < amount_of_matrices; i++)
+        matrix_sizes[i] = new int [2];
 
     for(int i = 0; i < amount_of_matrices; i++) {
 
@@ -102,11 +103,11 @@ int main() {
 //        return ERR_FILE_DOESNT_EXIST;
 //    }
 
-//    if(multiplyMatrices(amount_of_matrices, matrix_sizes, matrix_array) != OK) {
-//        cout << endl << MSG_ERR_MATRICES_WRONG_SIZE << endl;
-//        deleteFiles(iterations, file_names);
-//        return ERR_MATRICES_WRONG_SIZE;
-//    }
+    if(multiplyMatrices(amount_of_matrices, matrix_sizes, matrix_array) != OK) {
+        cout << endl << MSG_ERR_MATRICES_WRONG_SIZE << endl;
+        deleteFiles(iterations, file_names);
+        return ERR_MATRICES_WRONG_SIZE;
+    }
 
 //    if(populateFile(matrix_sizes[0], matrix_sizes[3], matrix_multiplied, new_file_name) != OK) {
 //        cout << endl << MSG_ERR_FILE_POPULATION_FAIL << endl;

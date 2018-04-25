@@ -1,5 +1,15 @@
 #include "functions.h"
+int matrixAlloc(){
 
+}
+
+int freeMatrix(){
+
+}
+
+int copyMatrix(){
+
+}
 int multiplyMatrices(int amount_of_matrices, int** matrix_sizes, int*** matrix_array) {
 
     int **matrix_multiplied, rows = 0, columns = 0;
