@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
 
-    int amount_of_matrices = 4,
+    int amount_of_matrices = 3,
             rows = 0,
             columns = 0,
             iterations = 0,
@@ -101,20 +101,17 @@ int main() {
 //        deleteFiles(iterations, file_names);
 //        return ERR_FILE_DOESNT_EXIST;
 //    }
-//
+
 //    if(multiplyMatrices(amount_of_matrices, matrix_sizes, matrix_array) != OK) {
 //        cout << endl << MSG_ERR_MATRICES_WRONG_SIZE << endl;
 //        deleteFiles(iterations, file_names);
 //        return ERR_MATRICES_WRONG_SIZE;
 //    }
 
-//
-//
 //    if(populateFile(matrix_sizes[0], matrix_sizes[3], matrix_multiplied, new_file_name) != OK) {
 //        cout << endl << MSG_ERR_FILE_POPULATION_FAIL << endl;
 //        return ERR_FILE_POPULATION_FAIL;
 //    }
-//
 
     return OK;
 }
