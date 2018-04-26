@@ -17,6 +17,7 @@ int main() {
     int rows = 0, columns = 0, iterations = 0,
             **matrix_pointer = NULL, **matrix_sizes = NULL, ***matrix_array = new int** [2];
     string file_name, file_names[2];
+    bool identity_matrix = false;
 
     allocateMemory(matrix_sizes, 2, 2);
 
@@ -24,7 +25,7 @@ int main() {
 
         iterations++;
 
-        if(getData(&rows, &columns, &file_name) != OK) {
+        if(getData(&rows, &columns, &file_name, &identity_matrix) != OK) {
             cout << endl << MSG_ERR_WRONG_DATA << endl;
             deleteFiles(iterations, file_names);
             return ERR_WRONG_DATA;
@@ -49,12 +50,37 @@ int main() {
                 break;
         }
 
-        if(populateMatrix(rows, columns, matrix_pointer) != OK) {
+        if(populateMatrix(rows, columns, matrix_pointer, identity_matrix) != OK) {
             #ifdef DEBUG
                 cout << endl << MSG_ERR_MEMORY_ALLOC_FAIL << endl;
             #endif
             deleteFiles(iterations, file_names);
             return ERR_MEMORY_ALLOC_FAIL;
+        }
+
+        if(i > 0) {
+            if(checkSizes(matrix_sizes) != OK) {
+                cout << endl << MSG_ERR_MATRICES_WRONG_SIZE << endl;
+                deleteFiles(iterations, file_names);
+                return ERR_MATRICES_WRONG_SIZE;
+            }
+        }
+
+        switch(createFile(file_name)) {
+            case ERR_WRONG_DATA:
+                cout << endl << MSG_ERR_WRONG_DATA << endl;
+                deleteFiles(iterations, file_names);
+                return ERR_WRONG_DATA;
+            case ERR_FILE_EXISTS:
+                cout << endl << MSG_ERR_FILE_EXISTS << endl;
+                deleteFiles(iterations, file_names);
+                return ERR_FILE_EXISTS;
+            case ERR_FILE_CREATION_FAIL:
+                cout << endl << MSG_ERR_FILE_CREATION_FAIL << endl;
+                deleteFiles(iterations, file_names);
+                return ERR_FILE_CREATION_FAIL;
+            default:
+                break;
         }
 
         cout << endl;

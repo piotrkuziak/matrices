@@ -6,6 +6,7 @@
 #define MSG_GET_AMOUNT "Podaj ilość macierzy: "
 #define MSG_GET_ROWS "Podaj ilość wierszy: "
 #define MSG_GET_COLUMNS "Podaj ilość kolumn: "
+#define MSG_GET_IDENTITY_MATRIX_SIZE "Podaj ilość wierszy i kolumn: "
 #define MSG_GET_FILE_NAME "Podaj nazwę pliku, do którego zostanie zapisana macierz: "
 #define MSG_IDENTITY_MATRIX "Czy stworzyć macierz jednostkową? [T/N]: "
 
