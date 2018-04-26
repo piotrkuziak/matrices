@@ -22,7 +22,13 @@ int populateFile(int rows, int columns, int** matrix, string file_name);
 int getFileContents(int amount_of_matrices, string* file_names, int*** matrix_array);
 int multiplyMatrices(int amount_of_matrices, int** matrix_sizes, int*** matrix_array);
 void showMatrix(int rows, int columns, int** matrix_pointer);
-void clearMemory(int rows, int** matrix);
 void deleteFiles(int iterations, string* file_names);
+
+int allocateMemory(string*& array, int first);
+int allocateMemory(int*& array, int first);
+int allocateMemory(int**& array, int first, int second);
+int allocateMemory(int***& array, int first, int second, int third);
+
+int deallocateMemory();
 
 #endif //MATRICES_FUNCTIONS_H

@@ -7,6 +7,7 @@
 #define MSG_GET_ROWS "Podaj ilość wierszy: "
 #define MSG_GET_COLUMNS "Podaj ilość kolumn: "
 #define MSG_GET_FILE_NAME "Podaj nazwę pliku, do którego zostanie zapisana macierz: "
+#define MSG_IDENTITY_MATRIX "Czy stworzyć macierz jednostkową? [T/N]: "
 
 #define MSG_ERR_WRONG_DATA "PODANO ZŁE DANE"
 #define MSG_ERR_MEMORY_ALLOC_FAIL "NIE ZAALOKOWANO PAMIĘCI"
