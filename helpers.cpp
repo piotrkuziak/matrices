@@ -10,3 +10,15 @@ int is_digit(string data) {
         return ERR_WRONG_DATA;
 
 }
+
+//int matrixAlloc(){
+//
+//}
+//
+//int freeMatrix(){
+//
+//}
+//
+//int copyMatrix(){
+//
+//}

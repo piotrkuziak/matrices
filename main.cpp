@@ -5,11 +5,11 @@ using namespace std;
 int main() {
 
     int rows = 0, columns = 0, iterations = 0,
-            **matrix_pointer = NULL, **matrix_sizes = NULL, ***matrix_array = new int** [2];
+            **matrix_pointer = NULL, **matrix_sizes = NULL, ***matrix_array = new int** [3];
     string file_name, file_names[2];
     bool identity_matrix = false;
 
-    allocateMemory(matrix_sizes, 2, 2);
+    allocateMemory(matrix_sizes, 3, 2);
 
     for(int i = 0; i < 2; i++) {
 
@@ -94,10 +94,18 @@ int main() {
             break;
     }
 
+    if(multiplyMatrices(matrix_sizes, matrix_array) != OK) {
+        cout << endl << MSG_ERR_MATRICES_WRONG_SIZE << endl;
+        deleteFiles(iterations, file_names);
+        return ERR_MATRICES_WRONG_SIZE;
+    }
+
     cout << endl;
 
-    for(int i = 0; i < 2; i++)
+    for(int i = 0; i < 3; i++) {
         showMatrix(matrix_sizes[i][0], matrix_sizes[i][1], matrix_array[i]);
+        cout << endl;
+    }
 
 //    if(getFileContents(2, file_names, matrix_array) != OK) {
 //        #ifdef DEBUG

@@ -23,7 +23,7 @@ int checkSizes(int matrix_one_columns, int matrix_two_rows);
 int createFile(string file_name);
 int populateFile(int rows, int columns, int** matrix, string file_name);
 int getFileContents(int amount_of_matrices, string* file_names, int*** matrix_array);
-int multiplyMatrices(int amount_of_matrices, int** matrix_sizes, int*** matrix_array);
+int multiplyMatrices(int** matrix_sizes, int*** matrix_array);
 void showMatrix(int rows, int columns, int** matrix_pointer);
 void deleteFiles(int iterations, string* file_names);
 
