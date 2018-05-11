@@ -3,24 +3,41 @@
 int getFileContents(int amount_of_matrices, string* file_names, int*** matrix_array) {
 
     int rows = 0, columns = 0, **matrix;
+    string value;
 
-    for(int i = 0; i < amount_of_matrices; i++){
-        ifstream file (file_names[i]);
+    for(int a = 0; a < amount_of_matrices; a++){
+        ifstream file (file_names[a]);
 
-        if(!file) return ERR_FILE_DOESNT_EXIST;
+        if(!file)
+            return ERR_FILE_DOESNT_EXIST;
 
-        file >> rows >> columns;
+        file >> value;
+        if(is_digit(value) == OK)
+            rows = stoi(value);
+        else
+            return ERR_WRONG_DATA;
+
+        file >> value;
+        if(is_digit(value) == OK)
+            columns = stoi(value);
+        else
+            return ERR_WRONG_DATA;
 
         matrix = new int* [rows];
-        for(int i = 0; i < rows; i++) matrix[i] = new int [columns];
+        for(int i = 0; i < rows; i++)
+            matrix[i] = new int [columns];
 
         for(int j = 0; j < rows; j++) {
             for(int k = 0; k < columns; k++) {
-                file >> matrix[j][k];
+                file >> value;
+                if(is_digit(value) == OK)
+                    matrix[j][k] = stoi(value);
+                else
+                    return ERR_WRONG_DATA;
             }
         }
 
-        matrix_array[i] = matrix;
+        matrix_array[a] = matrix;
 
         file.close();
 

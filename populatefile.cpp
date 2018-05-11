@@ -16,9 +16,8 @@ int populateFile(int rows, int columns, int** matrix, string file_name) {
 
     file.close();
 
-    if(!file) {
+    if(!file)
         return ERR_FILE_POPULATION_FAIL;
-    }
 
     return OK;
 
