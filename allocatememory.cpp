@@ -54,35 +54,15 @@ int allocateMemory(int**& array, int first, int second) {
 }
 
 // THREE DIMENTIONS INT
-int allocateMemory(int***& array, int first, int second, int third) {
+int allocateMemory(int***& array, int first) {
 
-    if(first == NULL || second == NULL || third == NULL)
+    if(first == NULL)
         return ERR_WRONG_DATA;
 
     array = new (nothrow) int** [first];
 
-    for(int i = 0; i < first; i++)
-        array[i] = new (nothrow) int* [second];
-
-    for(int i = 0; i < first; i++) {
-        for(int j = 0; j < second; j++)
-            array[i][j] = new (nothrow) int [third];
-    }
-
     if(array == nullptr)
         return ERR_MEMORY_ALLOC_FAIL;
-
-    for(int i = 0; i < first; i++) {
-        if(array[i] == nullptr)
-            return ERR_MEMORY_ALLOC_FAIL;
-    }
-
-    for(int i = 0; i < first; i++) {
-        for(int j = 0; j < second; j++) {
-            if(array[i][j] == nullptr)
-                return ERR_MEMORY_ALLOC_FAIL;
-        }
-    }
 
     return OK;
 

@@ -5,11 +5,12 @@ using namespace std;
 int main() {
 
     int rows = 0, columns = 0, iterations = 0,
-            **matrix_pointer = NULL, **matrix_sizes = NULL, ***matrix_array = new int** [3];
+            **matrix_pointer = NULL, **matrix_sizes = NULL, ***matrix_array = NULL;
     string file_name, file_names[2];
     bool identity_matrix = false;
 
     allocateMemory(matrix_sizes, 3, 2);
+    allocateMemory(matrix_array, 3);
 
     for(int i = 0; i < 2; i++) {
 
@@ -81,6 +82,8 @@ int main() {
 
     } // FOR
 
+    // CLEAR MEMORY
+
     switch(getFileContents(2, file_names, matrix_array)) {
         case ERR_FILE_DOESNT_EXIST:
             cout << endl << MSG_ERR_FILE_DOESNT_EXIST << endl;
@@ -106,6 +109,8 @@ int main() {
         showMatrix(matrix_sizes[i][0], matrix_sizes[i][1], matrix_array[i]);
         cout << endl;
     }
+
+    // CLEAR MEMORY
 
 //    if(getFileContents(2, file_names, matrix_array) != OK) {
 //        #ifdef DEBUG
