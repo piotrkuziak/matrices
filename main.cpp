@@ -84,7 +84,16 @@ int main() {
 
     new_file_name = file_names[0] + "_" + file_names[1];
 
-    // CLEAR MEMORY
+    // CLEAR MEMORY MATRIX_POINTER
+    deallocateMemory(matrix_pointer, rows, columns);
+
+    cout << "Matrix pointer deallocating check" << endl;
+
+    for(int x = 0; x < matrix_sizes[1][0]; x++) {
+        cout << "[ ";
+        for(int y = 0; y < matrix_sizes[1][1]; y++) cout << " " << matrix_pointer[x][y] << " ";
+        cout << "]" << endl;
+    }
 
     switch(getFileContents(file_names, matrix_array)) {
         case ERR_FILE_DOESNT_EXIST:
@@ -135,25 +144,14 @@ int main() {
         return ERR_FILE_POPULATION_FAIL;
     }
 
-    cout << endl;
-
     for(int i = 0; i < 3; i++) {
         showMatrix(matrix_sizes[i][0], matrix_sizes[i][1], matrix_array[i]);
         cout << endl;
     }
 
-    // CLEAR MEMORY
+    // CLEAR MEMORY MATRIX_SIZES & MATRIX_ARRAY
 
-//    if(multiplyMatrices(amount_of_matrices, matrix_sizes, matrix_array) != OK) {
-//        cout << endl << MSG_ERR_MATRICES_WRONG_SIZE << endl;
-//        deleteFiles(iterations, file_names);
-//        return ERR_MATRICES_WRONG_SIZE;
-//    }
-
-//    if(populateFile(matrix_sizes[0], matrix_sizes[3], matrix_multiplied, new_file_name) != OK) {
-//        cout << endl << MSG_ERR_FILE_POPULATION_FAIL << endl;
-//        return ERR_FILE_POPULATION_FAIL;
-//    }
+    cout << endl << MSG_EXECUTION_SUCCESS << endl;
 
     return OK;
 }

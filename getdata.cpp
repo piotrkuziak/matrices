@@ -21,6 +21,7 @@ int getData(int *rows, int *columns, string *file_name, bool *identity_matrix) {
             cin >> *rows;
             cout << MSG_GET_COLUMNS;
             cin >> *columns;
+            *identity_matrix = false;
             break;
         default:
             return ERR_WRONG_DATA;

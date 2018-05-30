@@ -27,7 +27,7 @@ int allocateMemory(int*& array, int first);
 int allocateMemory(int**& array, int first, int second);
 int allocateMemory(int***& array, int first);
 
-int deallocateMemory();
+int deallocateMemory(int**& array, int first, int second);
 
 int is_digit(string data);
 int checkSizes(int matrix_one_columns, int matrix_two_rows);
