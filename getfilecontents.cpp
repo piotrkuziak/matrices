@@ -1,11 +1,11 @@
 #include "functions.h"
 
-int getFileContents(int amount_of_matrices, string* file_names, int*** matrix_array) {
+int getFileContents(string* file_names, int*** matrix_array) {
 
     int rows = 0, columns = 0, **matrix;
     string value;
 
-    for(int a = 0; a < amount_of_matrices; a++){
+    for(int a = 0; a < 2; a++){
         ifstream file (file_names[a]);
 
         if(!file)
