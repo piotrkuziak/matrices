@@ -6,7 +6,7 @@ int main() {
 
     int rows = 0, columns = 0, iterations = 0,
             **matrix_pointer = NULL, **matrix_sizes = NULL, ***matrix_array = NULL;
-    string file_name, file_names[3], new_file_name;
+    string file_name, file_names[3];
     bool identity_matrix = false;
 
     allocateMemory(matrix_sizes, 3, 2);
