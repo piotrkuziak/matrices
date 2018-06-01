@@ -6,7 +6,7 @@ int main() {
 
     int rows = 0, columns = 0, iterations = 0,
             **matrix_pointer = NULL, **matrix_sizes = NULL, ***matrix_array = NULL;
-    string file_name, file_names[2], new_file_name;
+    string file_name, file_names[3], new_file_name;
     bool identity_matrix = false;
 
     allocateMemory(matrix_sizes, 3, 2);
@@ -85,16 +85,16 @@ int main() {
 
     } // FOR
 
-    new_file_name = file_names[0] + "_" + file_names[1];
+    file_names[2] = file_names[0] + "_" + file_names[1];
 
     switch(getFileContents(file_names, matrix_array)) {
         case ERR_FILE_DOESNT_EXIST:
             cout << endl << MSG_ERR_FILE_DOESNT_EXIST << endl;
-            deleteFiles(iterations, file_names);
+            deleteFiles(2, file_names);
             return ERR_FILE_DOESNT_EXIST;
         case ERR_WRONG_DATA:
             cout << endl << MSG_ERR_WRONG_DATA << endl;
-            deleteFiles(iterations, file_names);
+            deleteFiles(2, file_names);
             return ERR_WRONG_DATA;
         default:
             break;
@@ -103,36 +103,36 @@ int main() {
     switch(multiplyMatrices(matrix_sizes, matrix_array)) {
         case ERR_MATRICES_WRONG_SIZE:
             cout << endl << MSG_ERR_MATRICES_WRONG_SIZE << endl;
-            deleteFiles(iterations, file_names);
+            deleteFiles(2, file_names);
             return ERR_MATRICES_WRONG_SIZE;
         case ERR_WRONG_DATA:
             cout << endl << MSG_ERR_WRONG_DATA << endl;
-            deleteFiles(iterations, file_names);
+            deleteFiles(2, file_names);
             return ERR_WRONG_DATA;
         default:
             break;
     }
 
-    switch(createFile(new_file_name)) {
+    switch(createFile(file_names[2])) {
         case ERR_WRONG_DATA:
             cout << endl << MSG_ERR_WRONG_DATA << endl;
-            deleteFiles(iterations, file_names);
+            deleteFiles(2, file_names);
             return ERR_WRONG_DATA;
         case ERR_FILE_EXISTS:
             cout << endl << MSG_ERR_FILE_EXISTS << endl;
-            deleteFiles(iterations, file_names);
+            deleteFiles(2, file_names);
             return ERR_FILE_EXISTS;
         case ERR_FILE_CREATION_FAIL:
             cout << endl << MSG_ERR_FILE_CREATION_FAIL << endl;
-            deleteFiles(iterations, file_names);
+            deleteFiles(2, file_names);
             return ERR_FILE_CREATION_FAIL;
         default:
             break;
     }
 
-    if(populateFile(matrix_sizes[2][0], matrix_sizes[2][1], matrix_array[2], new_file_name) != OK) {
+    if(populateFile(matrix_sizes[2][0], matrix_sizes[2][1], matrix_array[2], file_names[2]) != OK) {
         cout << endl << MSG_ERR_FILE_POPULATION_FAIL << endl;
-        deleteFiles(iterations, file_names);
+        deleteFiles(2, file_names);
         return ERR_FILE_POPULATION_FAIL;
     }
 
