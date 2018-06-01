@@ -145,7 +145,7 @@ int main() {
     deallocateMemory(matrix_sizes, 3);
     deallocateMemory(matrix_array, 3);
 
-    cout << endl << MSG_EXECUTION_SUCCESS << endl;
+    cout << "\033[1;92m" << MSG_EXECUTION_SUCCESS << "\033[0m\n";
 
     return OK;
 }
