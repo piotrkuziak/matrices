@@ -22,12 +22,11 @@ int multiplyMatrices(int** matrix_sizes, int*** matrix_array);
 void showMatrix(int rows, int columns, int** matrix_pointer);
 void deleteFiles(int iterations, string* file_names);
 
-int allocateMemory(string*& array, int first);
-int allocateMemory(int*& array, int first);
 int allocateMemory(int**& array, int first, int second);
 int allocateMemory(int***& array, int first);
 
-int deallocateMemory(int**& array, int first, int second);
+int deallocateMemory(int**& array, int first);
+int deallocateMemory(int***& array, int first);
 
 int is_digit(string data);
 int checkSizes(int matrix_one_columns, int matrix_two_rows);

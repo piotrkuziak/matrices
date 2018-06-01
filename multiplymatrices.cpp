@@ -4,7 +4,7 @@ int multiplyMatrices(int** matrix_sizes, int*** matrix_array) {
 
     int **matrix_multiplied, rows = 0, columns = 0;
 
-    if(matrix_sizes[0][1] != matrix_sizes[1][0])
+    if(checkSizes(matrix_sizes[0][1], matrix_sizes[1][0]) != OK)
         return ERR_MATRICES_WRONG_SIZE;
 
     for(int i = 0; i < 2; i++) {

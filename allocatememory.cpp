@@ -1,35 +1,5 @@
 #include "functions.h"
 
-// ONE DIMENSION STRING
-int allocateMemory(string*& array, int first) {
-
-    if(first == NULL)
-        return ERR_WRONG_DATA;
-
-    array = new (nothrow) string [first];
-
-    if(array == nullptr)
-        return ERR_MEMORY_ALLOC_FAIL;
-
-    return OK;
-
-}
-
-// ONE DIMENSION INT
-int allocateMemory(int*& array, int first) {
-
-    if(first == NULL)
-        return ERR_WRONG_DATA;
-
-    array = new (nothrow) int [first];
-
-    if(array == nullptr)
-        return ERR_MEMORY_ALLOC_FAIL;
-
-    return OK;
-
-}
-
 // TWO DIMENSIONS INT
 int allocateMemory(int**& array, int first, int second) {
 
