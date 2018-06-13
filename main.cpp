@@ -1,7 +1,5 @@
 #include "functions.h"
 
-using namespace std;
-
 int main() {
 
     int rows = 0, columns = 0, iterations = 0,

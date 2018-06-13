@@ -23,9 +23,7 @@ int getFileContents(string* file_names, int*** matrix_array) {
         else
             return ERR_WRONG_DATA;
 
-        matrix = new int* [rows];
-        for(int i = 0; i < rows; i++)
-            matrix[i] = new int [columns];
+        allocateMemory(matrix, rows, columns);
 
         for(int j = 0; j < rows; j++) {
             for(int k = 0; k < columns; k++) {
